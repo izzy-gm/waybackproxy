@@ -1,8 +1,24 @@
 # WaybackProxy
 
-WaybackProxy is a retro-friendly HTTP proxy that retrieves pages from the [Internet Archive Wayback Machine](http://web.archive.org) or [OoCities](http://www.oocities.org) and delivers them in their original form—without toolbars, scripts, or other extraneous content that may confuse retro browsers.
+WaybackProxy is a complete end-to-end solution for browsing archived web content on vintage computers. It transforms a Raspberry Pi into a dedicated time-traveling proxy server that retrieves pages from the [Internet Archive Wayback Machine](http://web.archive.org) or [OoCities](http://www.oocities.org) and delivers them in their original form—without toolbars, scripts, or other extraneous content that may confuse retro browsers.
 
-*Original proxy code by richardg867 at https://github.com/richardg867/WaybackProxy*
+## What Makes This Different
+
+Unlike basic proxy scripts, WaybackProxy is a **fully-integrated hardware and software solution** that's ready to deploy:
+
+- **Optimized for Raspberry Pi**: Designed and tested specifically for Raspberry Pi 4 running fresh installations of Raspberry Pi OS (Debian Trixie). One-command installation handles everything automatically.
+
+- **Dual Proxy Modes**:
+  - **Transparent Gateway Mode**: Connect any vintage computer directly to the Pi's Ethernet port—no browser configuration needed. All HTTP traffic is automatically routed through the Wayback Machine.
+  - **Standard Proxy Mode**: Access the proxy remotely from any device on your WiFi network (port 8888). Perfect for multiple vintage computers or modern devices.
+
+- **Physical Hardware Interface**: Optional LCD display and rotary encoder let you navigate through time without touching a keyboard. Turn the dial to change dates, see the current settings at a glance—ideal for demonstrations and retro computing setups.
+
+- **Production-Ready**: Includes systemd service integration, automatic startup on boot, comprehensive logging, web-based configuration interface, and robust error handling. This isn't a hobby script—it's a complete appliance.
+
+Whether you're connecting a single vintage Mac via Ethernet or serving an entire vintage computer lab over WiFi, WaybackProxy provides a turnkey solution for exploring web history on period-appropriate hardware.
+
+*Built upon the original proxy concept by richardg867 at https://github.com/richardg867/WaybackProxy*
 
 ## What You'll Need
 
@@ -64,6 +80,16 @@ After the Pi reboots, reconnect via SSH and run:
 sudo bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
+This installs the **latest stable release** by default. To install a specific version or branch:
+
+```bash
+# Install from main branch (latest development code)
+WAYBACKPROXY_BRANCH=main sudo bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
+
+# Install specific release
+WAYBACKPROXY_BRANCH=v2.0.0 sudo bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
+```
+
 **The installer will:**
 - Install all system dependencies (Python 3, I2C tools, GPIO libraries)
 - Create a dedicated `waybackproxy` system user
@@ -109,13 +135,15 @@ sudo systemctl restart waybackproxy
 
 ### Updating WaybackProxy
 
-To update to the latest version, re-run the installation script:
+To update to the latest stable release, re-run the installation script:
 
 ```bash
 sudo bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 Your `config.json` and `whitelist.txt` files will be automatically preserved.
+
+**Note:** The installer always pulls from the latest release by default. To update to bleeding-edge development code, use `WAYBACKPROXY_BRANCH=main`.
 
 ## Usage
 

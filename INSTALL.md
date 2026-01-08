@@ -8,7 +8,7 @@ Run this single command as root on your Raspberry Pi:
 bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
-That's it! The script will install everything automatically.
+That's it! The script will automatically detect and install the **latest stable release**.
 
 ## What Gets Installed
 
@@ -18,9 +18,18 @@ That's it! The script will install everything automatically.
 - **Logs**: `/var/log/waybackproxy/`
 - **Config**: `/opt/waybackproxy/config.json`
 
-## Install Specific Branch
+## Install Specific Version or Branch
+
+By default, the installer fetches the latest stable release. To install a specific version or development branch:
 
 ```bash
+# Install from main branch (bleeding-edge development)
+WAYBACKPROXY_BRANCH=main bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
+
+# Install specific release tag
+WAYBACKPROXY_BRANCH=v2.0.0 bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
+
+# Install from develop branch
 WAYBACKPROXY_BRANCH=develop bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
@@ -65,13 +74,15 @@ tail -f /var/log/waybackproxy/waybackproxy.error.log
 
 ## Updating
 
-Simply re-run the installation command:
+Simply re-run the installation command to update to the latest stable release:
 
 ```bash
 bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 Your configuration and whitelist will be automatically backed up and restored.
+
+The installer automatically detects and installs the latest release. Use `WAYBACKPROXY_BRANCH=main` to update to bleeding-edge development code.
 
 ## Requirements
 

@@ -4,6 +4,7 @@
 # Usage: bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 #
 # This script installs or updates WaybackProxy on Raspberry Pi OS (Debian Trixie)
+# By default, installs the latest stable release. Use WAYBACKPROXY_BRANCH=main for development code.
 # Must be run as root
 #
 
@@ -11,12 +12,31 @@ set -e  # Exit on error
 
 # Configuration
 REPO_URL="https://github.com/izzy-gm/waybackproxy"
-BRANCH="${WAYBACKPROXY_BRANCH:-main}"
 INSTALL_DIR="/opt/waybackproxy"
 SERVICE_USER="waybackproxy"
 SERVICE_NAME="waybackproxy"
 LOG_DIR="/var/log/waybackproxy"
 VENV_DIR="${INSTALL_DIR}/venv"
+
+# Determine version to install
+# If WAYBACKPROXY_BRANCH is set, use it (e.g., "main" for development, "develop" for testing)
+# Otherwise, fetch the latest release tag from GitHub
+if [ -n "$WAYBACKPROXY_BRANCH" ]; then
+    BRANCH="$WAYBACKPROXY_BRANCH"
+    VERSION_SOURCE="branch: $BRANCH"
+else
+    # Fetch latest release tag from GitHub API
+    LATEST_RELEASE=$(curl -s https://api.github.com/repos/izzy-gm/waybackproxy/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+
+    if [ -n "$LATEST_RELEASE" ] && [ "$LATEST_RELEASE" != "null" ]; then
+        BRANCH="$LATEST_RELEASE"
+        VERSION_SOURCE="latest release: $LATEST_RELEASE"
+    else
+        # Fallback to main if no releases found
+        BRANCH="main"
+        VERSION_SOURCE="branch: main (no releases found)"
+    fi
+fi
 
 # Colors for output
 RED='\033[0;31m'
@@ -44,7 +64,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 log_info "WaybackProxy Installation Script"
-log_info "Branch: ${BRANCH}"
+log_info "Version: ${VERSION_SOURCE}"
 log_info "Install Directory: ${INSTALL_DIR}"
 
 # Detect if this is an update or fresh install

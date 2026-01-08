@@ -4,7 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-WaybackProxy is a retro-friendly HTTP proxy that retrieves pages from the Internet Archive Wayback Machine or OoCities and delivers them in their original form, without toolbars and scripts that may confuse retro browsers. The project includes a hardware interface component designed for Raspberry Pi with a rotary encoder and LCD display.
+WaybackProxy is a complete end-to-end solution for browsing archived web content on vintage computers. It transforms a Raspberry Pi into a dedicated time-traveling proxy server that retrieves pages from the Internet Archive Wayback Machine or OoCities and delivers them in their original form, without toolbars and scripts that may confuse retro browsers.
+
+**Key Distinguishing Features:**
+- **Optimized for Raspberry Pi 4**: Designed and tested specifically for fresh installations of Raspberry Pi OS (Debian Trixie)
+- **Dual Proxy Modes**: Transparent gateway mode via Ethernet port (no browser config needed) + standard proxy mode via WiFi on port 8888
+- **Physical Hardware Interface**: Optional LCD display and rotary encoder for date navigation
+- **Production-Ready**: Complete with systemd service, automatic startup, logging, web-based configuration, and robust error handling
+
+This is a fully-integrated hardware and software solution, not just a proxy script.
 
 ## Core Architecture
 
@@ -72,8 +80,17 @@ Run the installation script as root on a fresh Raspberry Pi OS instance:
 bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
-**To install a specific branch:**
+This automatically installs the **latest stable release**. The installer script itself is always fetched from the main branch (so installer bug fixes are immediately available), but it clones the latest release tag by default.
+
+**To install a specific version or branch:**
 ```bash
+# Install from main branch (bleeding-edge development)
+WAYBACKPROXY_BRANCH=main bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
+
+# Install specific release
+WAYBACKPROXY_BRANCH=v2.0.0 bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
+
+# Install develop branch for testing
 WAYBACKPROXY_BRANCH=develop bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 

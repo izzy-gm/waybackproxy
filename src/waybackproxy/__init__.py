@@ -21,7 +21,7 @@ For Raspberry Pi 4 with Raspberry Pi OS (Debian Trixie).
 """
 from __future__ import annotations
 
-__version__ = "2.0.0"
+__version__ = "2.1.0"
 __author__ = "izzy-gm"
 
 # Core proxy components

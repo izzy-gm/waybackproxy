@@ -1,0 +1,49 @@
+{
+    "_comment": "WaybackProxy Configuration - Copy to config.json and customize",
+
+    "LISTEN_PORT": 8888,
+    "_LISTEN_PORT_comment": "Port for HTTP proxy server (1024-65535)",
+
+    "DATE": "20011025",
+    "_DATE_comment": "Target date for Wayback Machine (YYYYMMDD, YYYYMM, or YYYY). Default: Windows XP release date",
+
+    "DATE_TOLERANCE": 120,
+    "_DATE_TOLERANCE_comment": "Allow loading content up to X days after DATE. Set to null for unlimited",
+
+    "GEOCITIES_FIX": true,
+    "_GEOCITIES_FIX_comment": "Redirect Geocities requests to oocities.org",
+
+    "QUICK_IMAGES": true,
+    "_QUICK_IMAGES_comment": "Use original Wayback URLs for faster image loading",
+
+    "WAYBACK_API": false,
+    "_WAYBACK_API_comment": "Use Wayback Availability API for closest snapshots (slower but more reliable)",
+
+    "CONTENT_TYPE_ENCODING": true,
+    "_CONTENT_TYPE_ENCODING_comment": "Allow encoding in Content-Type header (disable for very old browsers like Mosaic)",
+
+    "SILENT": false,
+    "_SILENT_comment": "Disable logging output",
+
+    "SETTINGS_PAGE": true,
+    "_SETTINGS_PAGE_comment": "Enable web-based settings at http://web.archive.org",
+
+    "HARDWARE": {
+        "_comment": "Hardware configuration for Raspberry Pi (optional)",
+
+        "display_type": "lcd",
+        "_display_type_comment": "Display type: 'lcd' (LCD1602) or 'terminal' (console output)",
+
+        "input_method": "rotary",
+        "_input_method_comment": "Input method: 'rotary' (encoder) or 'keyboard' (arrow keys)",
+
+        "gpio_clk": 26,
+        "_gpio_clk_comment": "GPIO pin for rotary encoder CLK (BCM numbering)",
+
+        "gpio_dt": 19,
+        "_gpio_dt_comment": "GPIO pin for rotary encoder DT (BCM numbering)",
+
+        "gpio_button": 13,
+        "_gpio_button_comment": "GPIO pin for push button (BCM numbering)"
+    }
+}

@@ -1,0 +1,9 @@
+# Core dependencies
+urllib3>=2.0.0
+requests>=2.31.0
+
+# Raspberry Pi GPIO and hardware interface
+# Using rpi-lgpio for compatibility with modern kernels (6.x+) and Bookworm
+rpi-lgpio>=0.4.0
+smbus2>=0.4.2
+RGB1602>=0.1.0

@@ -189,9 +189,11 @@ When running WaybackProxy manually:
 
 WaybackProxy is configured via `/opt/waybackproxy/config.json`:
 
+### Proxy Settings
+
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `LISTEN_PORT` | `8888` | HTTP proxy listen port |
+| `LISTEN_PORT` | `8888` | HTTP proxy listen port (1024-65535) |
 | `DATE` | `20011025` | Target date for archived content (formats: `YYYYMMDD`, `YYYYMM`, or `YYYY`) |
 | `DATE_TOLERANCE` | `365` | Allow content up to X days after the target date (`null` = unlimited) |
 | `GEOCITIES_FIX` | `true` | Redirect GeoCities URLs to oocities.org |
@@ -200,6 +202,20 @@ WaybackProxy is configured via `/opt/waybackproxy/config.json`:
 | `CONTENT_TYPE_ENCODING` | `true` | Include charset in Content-Type header (disable for very old browsers like Mosaic) |
 | `SILENT` | `false` | Disable console logging |
 | `SETTINGS_PAGE` | `true` | Enable web-based configuration at `http://web.archive.org` |
+
+### Hardware Settings (Optional)
+
+These settings configure the hardware interface when running with LCD display and rotary encoder:
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `HARDWARE.display_type` | `lcd` | Display type: `lcd` (LCD1602 RGB Module) or `terminal` (console output) |
+| `HARDWARE.input_method` | `rotary` | Input method: `rotary` (rotary encoder) or `keyboard` (arrow keys) |
+| `HARDWARE.gpio_clk` | `26` | GPIO pin for rotary encoder CLK signal (BCM numbering, 0-27) |
+| `HARDWARE.gpio_dt` | `19` | GPIO pin for rotary encoder DT signal (BCM numbering, 0-27) |
+| `HARDWARE.gpio_button` | `13` | GPIO pin for push button switch (BCM numbering, 0-27) |
+
+**Note:** Hardware settings are only used when running with hardware UI (without `--headless` flag). In headless mode, these settings are ignored.
 
 ### Web-Based Configuration
 

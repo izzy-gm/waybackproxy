@@ -255,15 +255,26 @@ The custom `lrudict.py` implementation provides time-based and size-based evicti
 ## Configuration Reference
 
 Key settings in `config.json`:
-- `LISTEN_PORT`: Proxy server port (default: 8888)
-- `DATE`: Target date in YYYYMMDD format
-- `DATE_TOLERANCE`: Days after DATE that assets can be loaded (null = unlimited)
-- `WAYBACK_API`: Use Availability API to find closest snapshots (slower but more reliable)
-- `QUICK_IMAGES`: Keep web.archive.org URLs for assets (faster, more tainted HTML)
-- `GEOCITIES_FIX`: Redirect Geocities requests to oocities.org
-- `CONTENT_TYPE_ENCODING`: Allow charset in Content-Type (disable for very old browsers like Mosaic)
-- `SILENT`: Disable logging to stdout
-- `SETTINGS_PAGE`: Enable web-based settings at http://web.archive.org
+
+**Proxy Settings:**
+- `LISTEN_PORT`: Proxy server port (default: 8888, range: 1024-65535)
+- `DATE`: Target date in YYYYMMDD, YYYYMM, or YYYY format (default: 20011025)
+- `DATE_TOLERANCE`: Days after DATE that assets can be loaded, null = unlimited (default: 365)
+- `WAYBACK_API`: Use Availability API to find closest snapshots, slower but more reliable (default: false)
+- `QUICK_IMAGES`: Keep web.archive.org URLs for assets, faster but more tainted HTML (default: true)
+- `GEOCITIES_FIX`: Redirect Geocities requests to oocities.org (default: true)
+- `CONTENT_TYPE_ENCODING`: Allow charset in Content-Type, disable for very old browsers like Mosaic (default: true)
+- `SILENT`: Disable logging to stdout (default: false)
+- `SETTINGS_PAGE`: Enable web-based settings at http://web.archive.org (default: true)
+
+**Hardware Settings (HARDWARE object, optional):**
+- `display_type`: Display type - "lcd" (LCD1602) or "terminal" (console) (default: "lcd")
+- `input_method`: Input method - "rotary" (encoder) or "keyboard" (arrow keys) (default: "rotary")
+- `gpio_clk`: GPIO pin for rotary encoder CLK signal, BCM numbering 0-27 (default: 26)
+- `gpio_dt`: GPIO pin for rotary encoder DT signal, BCM numbering 0-27 (default: 19)
+- `gpio_button`: GPIO pin for push button switch, BCM numbering 0-27 (default: 13)
+
+Hardware settings are only used when running with hardware UI (without `--headless` flag).
 
 ## Known Limitations
 

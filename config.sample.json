@@ -7,7 +7,7 @@
     "DATE": "20011025",
     "_DATE_comment": "Target date for Wayback Machine (YYYYMMDD, YYYYMM, or YYYY). Default: Windows XP release date",
 
-    "DATE_TOLERANCE": 120,
+    "DATE_TOLERANCE": 365,
     "_DATE_TOLERANCE_comment": "Allow loading content up to X days after DATE. Set to null for unlimited",
 
     "GEOCITIES_FIX": true,

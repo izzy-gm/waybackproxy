@@ -5,7 +5,7 @@
 Run this single command as root on your Raspberry Pi:
 
 ```bash
-bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/install.sh)"
+bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 That's it! The script will install everything automatically.
@@ -21,7 +21,7 @@ That's it! The script will install everything automatically.
 ## Install Specific Branch
 
 ```bash
-WAYBACKPROXY_BRANCH=develop bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/install.sh)"
+WAYBACKPROXY_BRANCH=develop bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 ## After Installation
@@ -68,7 +68,7 @@ tail -f /var/log/waybackproxy/waybackproxy.error.log
 Simply re-run the installation command:
 
 ```bash
-bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/install.sh)"
+bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 Your configuration and whitelist will be automatically backed up and restored.

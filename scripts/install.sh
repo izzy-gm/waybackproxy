@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # WaybackProxy Installation Script for Raspberry Pi OS
-# Usage: bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/install.sh)"
+# Usage: bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 #
 # This script installs or updates WaybackProxy on Raspberry Pi OS (Debian Trixie)
 # Must be run as root
@@ -668,7 +668,7 @@ else
         echo "     sudo apt-get install liblgpio-dev"
         echo ""
         echo "  2. Reinstall WaybackProxy:"
-        echo "     sudo bash -c \"\$(curl ${REPO_URL}/raw/branch/${BRANCH}/scripts/install.sh)\""
+        echo "     sudo bash -c \"\$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/${BRANCH}/scripts/install.sh)\""
         echo ""
         echo "  OR run in headless mode:"
         echo "     python3 -m waybackproxy --headless"

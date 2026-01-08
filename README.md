@@ -61,7 +61,7 @@ sudo reboot
 After the Pi reboots, reconnect via SSH and run:
 
 ```bash
-sudo bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/scripts/install.sh)"
+sudo bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 **The installer will:**
@@ -112,7 +112,7 @@ sudo systemctl restart waybackproxy
 To update to the latest version, re-run the installation script:
 
 ```bash
-sudo bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/scripts/install.sh)"
+sudo bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 Your `config.json` and `whitelist.txt` files will be automatically preserved.

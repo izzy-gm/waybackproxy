@@ -69,12 +69,12 @@ The proxy uses Wayback Machine date codes in format YYYYMMDD[HHMMSScc][tag]:
 Run the installation script as root on a fresh Raspberry Pi OS instance:
 
 ```bash
-bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/install.sh)"
+bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 **To install a specific branch:**
 ```bash
-WAYBACKPROXY_BRANCH=develop bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/install.sh)"
+WAYBACKPROXY_BRANCH=develop bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"
 ```
 
 The script will:
@@ -172,7 +172,7 @@ The app runs at:
 1. Make changes locally on Mac
 2. Commit and push to repository
 3. SSH into Raspberry Pi: `ssh pi@<raspberry-pi-ip>`
-4. Update: `sudo bash -c "$(curl https://github.com/izzy-gm/waybackproxy/raw/branch/main/install.sh)"`
+4. Update: `sudo bash -c "$(curl https://raw.githubusercontent.com/izzy-gm/waybackproxy/refs/heads/main/scripts/install.sh)"`
 5. Check logs: `journalctl -u waybackproxy -f`
 
 ## Hardware UI (Raspberry Pi)

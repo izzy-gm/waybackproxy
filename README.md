@@ -404,5 +404,5 @@ This project includes code from the following sources:
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
-Copyright (C) 2024-2026 Izzy Graniel
+Copyright (C) 2024-2026 izzy-gm
 Copyright (C) 2023 richardg867 (original WaybackProxy)

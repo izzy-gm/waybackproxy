@@ -1,5 +1,9 @@
 # WaybackProxy
 
+<p align="center">
+  <img src="assets/case.png" alt="WaybackProxy Device" />
+</p>
+
 WaybackProxy is a complete end-to-end solution for browsing archived web content on vintage computers. It transforms a Raspberry Pi into a dedicated time-traveling proxy server that retrieves pages from the [Internet Archive Wayback Machine](http://web.archive.org) or [OoCities](http://www.oocities.org) and delivers them in their original form—without toolbars, scripts, or other extraneous content that may confuse retro browsers.
 
 ## What Makes This Different
@@ -37,6 +41,9 @@ Whether you're connecting a single vintage Mac via Ethernet or serving an entire
 All components connect to the Raspberry Pi GPIO header. See the wiring diagram below:
 
 ![Wiring Diagram](assets/wiring_diagram.svg)
+
+**3D Printable Case:**
+STL files for a custom Raspberry Pi enclosure are included in the `assets/` directory. The case accommodates the Raspberry Pi 4, LCD display, and rotary encoder.
 
 **GPIO Pin Connections (BCM numbering):**
 - GPIO 26 → Rotary Encoder CLK

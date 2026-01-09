@@ -362,7 +362,7 @@ The Internet Archive Wayback Machine has occasional issues:
 
 ### Contributors
 
-**Izzy Graniel** - Project maintainer and primary developer
+**izzy-gm** - Project maintainer and primary developer
 - Complete architectural refactoring and modernization to modular Python structure
 - Hardware interface implementation (LCD display, rotary encoder, GPIO integration)
 - Raspberry Pi platform integration and automated installation system

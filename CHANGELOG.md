@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.1] - 2026-01-09
+
+### Fixed
+- Whitelisted domains now display correctly instead of returning blank pages
+- HTML content from whitelisted domains is no longer processed through Wayback Machine patching
+- Fixes macintoshrepository.org and other whitelisted sites appearing broken or empty
+
 ## [2.1.0] - 2026-01-08
 
 ### Added
@@ -80,6 +87,7 @@ Initial release based on richardg867's WaybackProxy with hardware interface addi
 - Date tolerance configuration
 - Basic whitelist support
 
-[Unreleased]: https://github.com/izzy-gm/waybackproxy/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/izzy-gm/waybackproxy/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/izzy-gm/waybackproxy/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/izzy-gm/waybackproxy/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/izzy-gm/waybackproxy/releases/tag/v2.0.0

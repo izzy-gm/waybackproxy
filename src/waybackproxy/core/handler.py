@@ -179,6 +179,9 @@ class Handler(socketserver.BaseRequestHandler):
 		if auth:
 			effective_date = auth.replace(':', '')
 
+		# Track whitelist status for proper content handling
+		is_whitelisted = False
+
 		# Effectively handle the request.
 		try:
 			if path in pac_file_paths:
@@ -199,6 +202,7 @@ class Handler(socketserver.BaseRequestHandler):
 				return
 			elif hostname in self.shared_state.whitelist:
 				_print('[>] [byp]', archived_url)
+				is_whitelisted = True
 			elif hostname == 'web.archive.org':
 				if path[:5] != '/web/':
 					# Launch settings if enabled.
@@ -395,7 +399,9 @@ class Handler(socketserver.BaseRequestHandler):
 				content_type = content_type[:idx]
 
 		# Set the archive mode.
-		if GEOCITIES_FIX and hostname in ('www.oocities.org', 'www.oocities.com'):
+		if is_whitelisted:
+			mode = 2 # whitelisted - no patching
+		elif GEOCITIES_FIX and hostname in ('www.oocities.org', 'www.oocities.com'):
 			mode = 1 # oocities
 		else:
 			mode = 0 # Wayback Machine
@@ -403,6 +409,10 @@ class Handler(socketserver.BaseRequestHandler):
 		# Check content type to determine if this is HTML we need to patch.
 		# Wayback will add its HTML to anything it thinks is HTML.
 		if 'text/html' in guessed_content_type:
+			# Whitelisted domains: pass through without any patching
+			if mode == 2:
+				return self.send_passthrough(conn, http_version, content_type, request_url)
+
 			# Some dynamically-generated links may end up pointing to
 			# web.archive.org. Correct that by redirecting the Wayback
 			# portion of the URL away if it ends up being HTML consumed
